@@ -2,7 +2,6 @@ import pprint
 import binascii
 import mnemonic
 import bip32utils
-import bitcoin as b
 from itertools import permutations 
 solution = ""
 match = "1h8BNZkhsPiu6EKazP19WkGxDw3jHf9aT"
