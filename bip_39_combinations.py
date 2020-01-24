@@ -16,9 +16,9 @@ words = {
 string ="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 prime="957496696762772407663"
 word=""
-def bip39(ss:str):
+def bip39(string_as_seed:str):
     mobj = mnemonic.Mnemonic("english")
-    seed = bytes(ss,"utf-8")
+    seed = bytes(string_as_seed,"utf-8")
 
     bip32_root_key_obj = bip32utils.BIP32Key.fromEntropy(seed)
     bip32_child_key_obj = bip32_root_key_obj.ChildKey(44 + bip32utils.BIP32_HARDEN).ChildKey(0 + bip32utils.BIP32_HARDEN).ChildKey(0 + bip32utils.BIP32_HARDEN).ChildKey(0).ChildKey(0)
@@ -32,6 +32,7 @@ def bip39(ss:str):
             'privatekey': bip32_child_key_obj.WalletImportFormat(),
             'coin': 'BTC'
             })
+   #Adjust permutation 0<items=<4
 perm = permutations(words,3)
 def search_index(st : str):
     for n in range(len(string)-1):
