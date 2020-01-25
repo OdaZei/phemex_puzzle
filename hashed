@@ -1,0 +1,48 @@
+import pprint
+import hashlib
+import binascii
+import mnemonic
+import bip32utils
+import bitcoin as btc
+import struct
+import itertools as it
+prime="957496696762772407663"
+words={
+        "0":"BTC",
+        "1":"ETH",
+        "2":"XRP",
+        "3":"Phemex",
+        "4":prime
+    }
+code=""
+string=""
+match = "1h8BNZkhsPiu6EKazP19WkGxDw3jHf9aT"
+string_lenght = 27
+perm = it.permutations(words,5)
+def search(wallet:dict):
+    if(wallet["addr"]==match):
+        print(wallet*10)
+    else:
+        print(wallet["addr"])
+    
+def get_permutation_order():
+    global string
+    for i in perm:
+        for j in i:
+            search(find_word(j))
+        string=""
+def find_word(i:str):
+    global string
+    j=words[i]
+    string+=j
+    print(string)
+    wallet={
+            "addr":btc.privtoaddr(hashlib.sha256(bytes(string,"utf-8")).hexdigest()),
+            "pubKey":btc.privtopub(hashlib.sha256(bytes(string,"utf-8")).hexdigest()),
+            "privKey":btc.encode_privkey(hashlib.sha256(bytes(string,"utf-8")).hexdigest(),"wif")
+        }
+    return wallet
+    
+
+        
+get_permutation_order()
