@@ -1,5 +1,11 @@
 """
 Outputs all permutations of words dictionary , with correct lenght (27-digits) + 21-prime
+base="abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ" --> base string inspired on base58 string format--->
+"123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
+
+NOTE THAT THERE ARE TWO POSSIBLE ANSWERS AS I GROUP THE 27-DIGIT NUMBER AS THE SOLUTION OF THE PERMUTATION , AND ADD(STRING ADDITION) THE 21-DIGIT PRIME
+EXAMPLE:
+21-DIGIT-PRIME + 27-DIGIT-PRIME OR 27-DIGIT-NUMBER + 21-DIGIT-PRIME
 """
 
 from itertools import permutations as pmt
