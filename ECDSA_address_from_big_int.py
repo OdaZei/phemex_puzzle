@@ -29,7 +29,11 @@ class GenAddressGivenInteger():
         self.pubKey = self.get_PublicKey()
 
     def correct_lenght(self):
-
+        """
+        Adjust size of key to 32 bytes  lenght key
+        eack key iis a combination of a permutation 
+        in words dict order 
+        """
         return int.to_bytes(self.value,32,"big")
         
     def rimped160(self,x):
