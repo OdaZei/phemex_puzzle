@@ -34,7 +34,7 @@ def bip39(ss:str):
                     'privatekey': bip32_child_key_obj.WalletImportFormat(),
                     'coin': 'BTC'
                     }
-        if(priv_key["publickey"]==match):
+        if(priv_key["addr"]==match):
             print(priv_key)
             print(("BINGO"+"\n")*64)
                 
